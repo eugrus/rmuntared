@@ -1,5 +1,12 @@
 #!/bin/bash
 
+if [ $# -eq 0 ]; then
+  echo "This script removes files and directories extracted from a given tar-file (or corresponding to the listing of that archive)."
+  echo "Usage:"
+  echo "rmuntared original.tar optionally_dir_with_extracted_files_if_not_in_the_current_dir"
+  exit 1
+fi
+
 TAR_FILE="$1"
 
 if [ -z "$2" ]; then
