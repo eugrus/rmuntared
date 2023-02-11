@@ -1,0 +1,17 @@
+#!/bin/bash
+
+TAR_FILE="$1"
+
+if [ -z "$2" ]; then
+  DIR="./"
+else
+  DIR="$2"
+fi
+
+FILES_FROM_TAR=$(tar -tf $TAR_FILE)
+
+for file in $FILES_FROM_TAR; do
+  if [ -e "$DIR/$file" ]; then
+    rm -rf "$DIR/$file"
+  fi
+done
